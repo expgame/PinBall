@@ -36,16 +36,18 @@ public class BallController : MonoBehaviour {
 	
 		//ボールの衝突判定
 	void OnCollisionEnter(Collision other) {
-			//衝突判定
-			if (other.gameObject.tag == "SmallCloudTag") {
-			//スコア処理を追加
-
+		//スコア処理を追加
+		if (other.gameObject.tag == "SmallCloudTag") {
 			score += 10;
-			scoreText.GetComponent<Text>().text = score.ToString();
-			} else if(other.gameObject.tag == "LargeCloudTag") {
-	
-			score +=20;
-			scoreText.GetComponent<Text>().text = score.ToString();
-			}
+			scoreText.GetComponent<Text> ().text = score.ToString ();
+
+		} else if (other.gameObject.tag == "LargeCloudTag") {
+			score += 20;
+			scoreText.GetComponent<Text> ().text = score.ToString ();
+
+		} else if (other.gameObject.tag == "LargeStarTag") {
+			score += 50;
+			scoreText.GetComponent<Text> ().text = score.ToString ();
 		}
+	}		
 }
